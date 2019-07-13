@@ -1,0 +1,39 @@
+<header class="main-header">
+  <div class="top">
+    <div class="info">
+      <p>GET 100% OFF WITH THE MAGIC COUPON!</p>
+    </div>
+
+    <ul class="user-menu">
+      <li><a href=""><i class="fas fa-heart"></i> wishlist</a></li>
+      {%- if shop.customer_accounts_enabled -%}
+        {%- if customer -%}
+          <li><a href="/account"><i class="fas fa-user"></i> {{ customer.first_name | escape }}</a></li>
+        {%- else -%}
+          <li><a href="/account/login"><i class="fas fa-user"></i> Log In</a></li>
+        {%- endif -%}
+      {%- endif -%}
+      <li><a href="/cart"><i class="fas fa-shopping-cart"></i> Cart ({{ carat.item_count | default: 0 }})</a></li>
+    </ul>
+  </div>
+
+  <div class="mid">
+    <a href="/"><img src="https://cdn2.shopify.com/s/files/1/0080/4867/2850/files/logo_flagged.png?2292" alt=""></a>
+    <div class="searchbar">
+      <input type="search" id="site-search" placeholder="What do you want to read?">
+      <button><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <div class="btm">
+    <nav class="main-nav">
+      <ul>
+      {%- for link in linklists.main-menu.links -%}
+        <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+      {%- endfor -%}
+      </ul>
+    </nav>
+      <a href="/adb" class="adb">Join the <span class="onsmall">A.D.B.</span><span class="onbig">Armchair Detectives Bureau</span></a>
+  </div>
+
+</header>
